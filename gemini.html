@@ -65,14 +65,19 @@
         #branding h1 {
             font-size: 1.5rem;
             font-weight: 600;
+            display: flex; /* Flexboxを使って画像とテキストを横並びにする */
+            align-items: center; /* 垂直方向中央揃え */
         }
         #branding a {
             color: #fff;
             text-decoration: none;
+            display: flex;
+            align-items: center;
         }
-        #branding .fa-code {
-            color: var(--accent-color);
-            margin-right: 8px;
+        .header-logo {
+            height: 30px; /* アイコンの高さ */
+            margin-right: 10px; /* テキストとの間にスペース */
+            vertical-align: middle; /* テキストと画像を垂直方向で揃える */
         }
         nav ul {
             list-style: none;
@@ -282,7 +287,7 @@
     <header>
         <div class="header-container">
             <div id="branding">
-                <h1><a href="#"><i class="fa-solid fa-code"></i> Gemini-Code</a></h1>
+                <h1><a href="#"><img src="@image/sori_black.png" alt="Gemini-Code Logo" class="header-logo"> Gemini-Code</a></h1>
             </div>
             <nav>
                 <ul>
