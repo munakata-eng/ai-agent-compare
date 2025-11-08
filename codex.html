@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Vector - エンジニア一人会社</title>
+  <meta name="description" content="Studio Vectorは、フルスタックエンジニア宗像が運営する一人会社。アプリ開発や技術顧問で、アイデアを最短距離で形にします。">
+  <meta property="og:title" content="Studio Vector - エンジニア一人会社">
+  <meta property="og:description" content="アプリ開発・技術顧問・PoC支援まで、フルスタックエンジニアが伴走します。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/">
+  <meta property="og:image" content="https://example.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: "Hiragino Sans", "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --bg: #0b0d0f;
+      --fg: #f2f5f7;
+      --accent: #4fd1c5;
+      --muted: #6b7280;
+      --card: rgba(255, 255, 255, 0.05);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header,
+    main,
+    footer {
+      width: min(100%, 1200px);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    header {
+      padding: 24px clamp(20px, 6vw, 80px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .logo img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+    nav a {
+      margin-left: 16px;
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    main {
+      flex: 1;
+      padding: clamp(32px, 8vw, 120px);
+      display: grid;
+      gap: clamp(32px, 4vw, 72px);
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .hero > div:last-child {
+      align-self: flex-start;
+    }
+    .stat-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+      display: grid;
+      gap: 12px;
+    }
+    .stat-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+    }
+    .icon-accent {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin: 0;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin: 0;
+      color: var(--muted);
+    }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .btn {
+      padding: 12px 24px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s ease, border 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0b0d0f;
+    }
+    .btn-outline {
+      border-color: var(--fg);
+      color: var(--fg);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    section {
+      background: var(--card);
+      padding: clamp(24px, 4vw, 48px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .service-card {
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .service-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .profile {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      align-items: center;
+    }
+    .profile img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      justify-self: center;
+    }
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .contact-list li span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .contact-list strong {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    footer {
+      padding: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    @media (max-width: 600px) {
+      nav {
+        display: none;
+      }
+      header {
+        justify-content: center;
+      }
+      .hero > div:last-child {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="image/sori_black.png" alt="Studio Vectorロゴ">
+      Studio Vector
+    </div>
+    <nav>
+      <a href="#services">サービス</a>
+      <a href="#profile">プロフィール</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p>フルスタックエンジニア / 宗像 勇人</p>
+        <h1>ソロプレナーだからこそ、一貫性あるプロダクト開発を。</h1>
+        <p>要件整理からUX設計、フロント・バック・インフラまで一人で完結。事業オーナーと同じ目線で、プロダクトの0→1と改善を高速に回します。</p>
+        <div class="cta-group">
+          <a class="btn btn-primary" href="#contact">相談する</a>
+          <a class="btn btn-outline" href="#services">できること</a>
+        </div>
+      </div>
+      <div>
+        <p>最近の実績</p>
+        <ul class="stat-list">
+          <li><i class="fa-solid fa-rocket icon-accent"></i>生成AIカスタマーサポートPoC構築</li>
+          <li><i class="fa-solid fa-chart-line icon-accent"></i>SaaSダッシュボードのリプレイス</li>
+          <li><i class="fa-solid fa-microchip icon-accent"></i>IoTデバイス向け管理アプリ設計</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>提供サービス</h2>
+      <div class="services">
+        <article class="service-card">
+          <h3><i class="fa-solid fa-route icon-accent"></i>プロダクト開発伴走</h3>
+          <p>仮説検証サイクルを短く保つアーキテクチャ提案と実装。週次でロードマップを見直しながら成果を出します。</p>
+        </article>
+        <article class="service-card">
+          <h3><i class="fa-solid fa-magnifying-glass-chart icon-accent"></i>技術顧問・レビュー</h3>
+          <p>技術選定、コードレビュー、採用支援などをピンポイントで支援。必要なときだけ呼べる参謀として機能します。</p>
+        </article>
+        <article class="service-card">
+          <h3><i class="fa-solid fa-flask icon-accent"></i>PoC / MVP開発</h3>
+          <p>市場検証用のMVPを数週間で構築。デザインシステムや自動化を組み込み、本番導入への橋渡しを行います。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="profile" class="profile">
+      <img src="https://placehold.co/160x160" alt="代表写真">
+      <div>
+        <h2>代表プロフィール</h2>
+        <p>フルスタックエンジニアとして10年以上、スタートアップと大手の新規事業を横断。TypeScript/Go/Next.js/AWSを得意とし、ドメイン理解と技術判断を両立させるのが強みです。</p>
+        <p>個人ミッションは「良質な意思決定を増やす」。そのためのプロトタイピングと開発基盤づくりに情熱を注いでいます。</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>お問い合わせ</h2>
+      <p>ご相談はメールまたはSNSのDMで承っています。48時間以内の返信を心掛けています。</p>
+      <ul class="contact-list">
+        <li>
+          <strong><i class="fa-solid fa-envelope icon-accent"></i>メール</strong><br>
+          <span>hello@studiovector.dev</span>
+        </li>
+        <li>
+          <strong><i class="fa-brands fa-linkedin icon-accent"></i>LinkedIn</strong><br>
+          <span>linkedin.com/in/hayato-munakata</span>
+        </li>
+        <li>
+          <strong><i class="fa-brands fa-x-twitter icon-accent"></i>X (旧Twitter)</strong><br>
+          <span>@vector_hayato</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Studio Vector. All rights reserved.
+  </footer>
+</body>
+</html>

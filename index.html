@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エンジニアポートフォリオ集</title>
+    <meta name="description" content="様々なスタイルのエンジニアポートフォリオサイトのショーケース">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #4f46e5;
+            --accent: #06b6d4;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Sans", "Noto Sans JP", sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            opacity: 0.95;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.05) 10px,
+                rgba(255, 255, 255, 0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50%, 50%); }
+        }
+
+        .card-icon {
+            font-size: 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-body {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .card-subtitle {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .card-description {
+            margin-bottom: 20px;
+            color: var(--text);
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 25px;
+            padding-left: 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--text);
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .features li::before {
+            content: '✓';
+            display: inline-block;
+            margin-right: 10px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .card-link {
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .card-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* カラーバリエーション */
+        .card:nth-child(1) .card-header {
+            background: linear-gradient(135deg, #4fd1c5 0%, #0891b2 100%);
+        }
+
+        .card:nth-child(2) .card-header {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+
+        .card:nth-child(3) .card-header {
+            background: linear-gradient(135deg, #0779e4 0%, #0369a1 100%);
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                margin-bottom: 40px;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>エンジニアポートフォリオ集</h1>
+            <p class="subtitle">3つの異なるスタイルのポートフォリオサイトをご覧いただけます</p>
+        </header>
+
+        <div class="cards-grid">
+            <article class="card">
+                <div class="card-header">
+                    <div class="card-icon">🚀</div>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Studio Vector</h2>
+                    <p class="card-subtitle">フルスタックエンジニア / 宗像 勇人</p>
+                    <p class="card-description">
+                        ソロプレナーとして、要件整理からUX設計、フロント・バック・インフラまで一人で完結。
+                        事業オーナーと同じ目線で、プロダクトの0→1と改善を高速に回します。
+                    </p>
+                    <ul class="features">
+                        <li>プロダクト開発伴走</li>
+                        <li>技術顧問・レビュー</li>
+                        <li>PoC / MVP開発</li>
+                    </ul>
+                    <a href="codex.html" class="card-link">サイトを見る →</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <div class="card-icon">💻</div>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">TechSolo</h2>
+                    <p class="card-subtitle">フリーランスエンジニア</p>
+                    <p class="card-description">
+                        10年以上のソフトウェア開発経験を持つフリーランスエンジニア。
+                        Web開発からモバイルアプリ、クラウドインフラ構築まで、幅広い技術領域でビジネスをサポート。
+                    </p>
+                    <ul class="features">
+                        <li>Web開発</li>
+                        <li>モバイルアプリ開発</li>
+                        <li>クラウドインフラ</li>
+                        <li>技術コンサルティング</li>
+                    </ul>
+                    <a href="claude.html" class="card-link">サイトを見る →</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <div class="card-icon">⚡</div>
+                </div>
+                <div class="card-body">
+                    <h2 class="card-title">Gemini-Code</h2>
+                    <p class="card-subtitle">エンジニアのプロフェッショナルサービス</p>
+                    <p class="card-description">
+                        革新的なコードで、未来を創造する。
+                        大規模なシステム開発から、アジャイルなスタートアップ開発まで、幅広いプロジェクトを経験。
+                    </p>
+                    <ul class="features">
+                        <li>Webアプリケーション開発</li>
+                        <li>モバイルアプリケーション開発</li>
+                        <li>クラウドインフラ構築</li>
+                        <li>DX支援・ITコンサルティング</li>
+                    </ul>
+                    <a href="gemini.html" class="card-link">サイトを見る →</a>
+                </div>
+            </article>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 エンジニアポートフォリオ集. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
